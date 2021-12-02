@@ -1,0 +1,110 @@
+.bg-black{
+    background: black;
+}
+.shop-item{
+}
+
+.container{
+    padding-top: 10px;
+}
+
+.shop-item-photo{
+    width: 300px;
+    height: 200px;
+}
+.shop-item-details{
+    background-color: burlywood;
+    text-align: center;
+}
+.h1-contact{
+    line-height: normal;
+    font-family: 'Libre Franklin',sans-serif;
+    font-weight: 100;
+    font-size: 56px;
+    padding: 0 0 36px 30px;
+}
+.h2-contact{
+    width: 100%;
+    text-align: left;
+    color: #474747;
+    font-size: 32px;
+    text-transform: none;
+    font-weight: 100;
+    line-height: 1.2;
+}
+
+
+.con-left{
+    margin-top: 37px;
+}
+
+.phone-number{
+    color: #202020!important;
+    text-decoration: none;
+    cursor: grab;
+}
+.email-main{
+    color: 	#202020 !important;
+    text-decoration: none;
+    cursor: grab;
+}
+.instagram-link{
+    color: 	#202020 !important;
+    text-decoration: none;
+    cursor: grab;
+}
+.facebook-link{
+    color: 	#202020 !important;
+    text-decoration: none;
+    cursor: grab;
+}
+#main-contact-page{
+    min-height: 500px !important;
+    padding-bottom: 10px !important;
+    padding: 0 66px 30px;
+}
+
+.contact-left{
+    width: 45%;
+    float: left;
+}
+
+.create-row{
+    padding-top: 10px;
+}
+
+/*navbar test*/
+
+.flex{
+    display: flex;
+    gap: 3rem;
+}
+
+.nav-link{
+    padding: 0;
+    display: flex;
+}
+.primary-header{
+    align-items: center;
+    justify-content: space-between;
+}
+.primary-navigation{
+    background-color: black;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+ }
+
+.primary-navigation a {
+    text-decoration: none;
+}
+
+.primary-navigation a > [aria-hidden="true"]{
+    font-weight: 1000;
+    margin-inline-end: 0.5em;
+}
+.logo{
+    margin: 2rem;
+}
+
