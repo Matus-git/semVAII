@@ -62,6 +62,15 @@
 
     <script>
         function validateForm() {
+            if (document.edit.image.value =="" &&
+                document.edit.name.value ==""&&
+                document.edit.description.value =="" &&
+                document.edit.size.value ==""&&
+                document.edit.color.value ==""){
+                alert("You forget to fill image , name , description , color , size");
+                return false;
+            }
+
             if (document.edit.image.value =="") {
                 alert("This is not an image path");
                 return false;
