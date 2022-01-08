@@ -74,6 +74,16 @@
             @endif
 
         </ul>
+        <ul class="navbar-nav log-position">
+            <li class="nav-item ">
+                <a class="nav-link" href="">Login</a>
+            </li>
+            <a>|</a>
+            <li class="nav-item ">
+                <a class="nav-link" href="">Registration</a>
+            </li>
+        </ul>
+
     </div>
 </nav>
 

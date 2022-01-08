@@ -29,25 +29,25 @@
 
                     <div class="form-group">
                         <label >Name</label>
-                        <input type="text" class="form-control" name="name" placeholder="Enter name">
+                        <input type="text" class="form-control" name="name"  value="{{old('name') ?? $hoodie->name}}" >
 
                     </div>
 
                     <div class="form-group">
                         <label >Description</label>
-                        <input type="text" class="form-control" name="description" placeholder="Enter description">
+                        <input type="text" class="form-control" name="description" value="{{old('description') ?? $hoodie->description}}">
 
                     </div>
 
                     <div class="form-group">
                         <label >Color</label>
-                        <input type="text" class="form-control" name="color" placeholder="Enter color">
+                        <input type="text" class="form-control" name="color" value="{{old('color') ?? $hoodie->color}}">
 
                     </div>
 
                     <div class="form-group">
                         <label >Size</label>
-                        <input type="text" class="form-control" name="size" placeholder="Enter size">
+                        <input type="text" class="form-control" name="size"  value="{{old('size') ?? $hoodie->size}}">
 
                     </div>
 

@@ -84,6 +84,7 @@
     padding: 0;
     display: flex;
 }
+
 .primary-header{
     align-items: center;
     justify-content: space-between;
@@ -106,5 +107,8 @@
 }
 .logo{
     margin: 2rem;
+}
+.log-position{
+    text-align: right;
 }
 
