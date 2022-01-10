@@ -14,9 +14,9 @@ class CreateAddressesTable extends Migration
     public function up()
     {
         Schema::create('addresses', function (Blueprint $table) {
-            $table->id('id_address');
+            $table->id('id');
             $table->string('state');
-            $table->string('post_code',5)->unique();
+            $table->string('post_code');
             $table->string('city');
             $table->string('street');
             $table->string('house_number');
@@ -31,6 +31,6 @@ class CreateAddressesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('adresses');
+        Schema::dropIfExists('addresses');
     }
 }

@@ -1,6 +1,19 @@
 @extends('navbar')
 
 @section('content')
+
+    @if(\Illuminate\Support\Facades\Session::get('success'))
+        <div class="alert alert-success">
+            {{\Illuminate\Support\Facades\Session::get('success')}}
+        </div>
+    @endif
+    @if(\Illuminate\Support\Facades\Session::get('fail'))
+        <div class="alert alert-danger">
+            {{\Illuminate\Support\Facades\Session::get('fail')}}
+        </div>
+    @endif
+
+
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>

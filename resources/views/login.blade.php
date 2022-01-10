@@ -18,27 +18,27 @@
 <body class="log-body">
         <h1 class="h1-login">Prihlásenie</h1>
 
-        <form method="POST" action="">
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
         <div class="login">
             <div>
                 Email
                 <div>
-                    <input type="email" name="email" value="{{ old('email') }}">
+                    <input  type="email" placeholder="Enter email" name="email" required autofocus value="{{ old('email') }}">
                 </div>
-
          </div>
 
          <div>
              Password
              <div>
-                 <input type="password" name="password" id="password">
+                 <input type="password" placeholder="Password" id="password" name="password" required>
+
              </div>
-
          </div>
 
-         <div class="log-butt">
-             <button class="button log-butt-style">Button</button>
-         </div>
+            <div class=" log-butt">
+                <button type="submit" >Login</button>
+            </div>
         </div>
 </form>
 </body>

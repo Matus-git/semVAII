@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HoodieController;
 use App\Http\Controllers\ProductController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +16,24 @@ use App\Http\Controllers\ProductController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
+//Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+//Route::post('login', 'Auth\LoginController@login');
+//Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+//
+//// Registration Routes...
+//Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+//Route::post('register', 'Auth\RegisterController@register');
+//
+//// Password Reset Routes...
+//Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
+//Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+//Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+//Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+
+Auth::routes();
 
 Route::get('/', function () {
     return view('home');
@@ -53,9 +74,11 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
+
 Route::get('/registration', function () {
     return view('registration');
 })->name('registration');
+
 
 Route::resource('hoodies',HoodieController::class);
 
@@ -70,3 +93,10 @@ Route::post('/create-hoodie/fetch',[ProductController::class,'fetch'])->name('cr
 Route::get('/create-hoodie/getProducts',[ProductController::class,'getProducts'])->name('create-hoodie.getProducts');
 
 Route::post('/store/price',[ProductController::class,'store'])->name('store.price');
+
+
+
+
+
+
+

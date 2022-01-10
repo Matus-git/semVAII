@@ -12,6 +12,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+
     /**
      * The attributes that are mass assignable.
      *
@@ -19,8 +20,12 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'surname',
+        'phone_number',
         'email',
+        'type',
         'password',
+        'address_id'
     ];
 
     /**
@@ -42,7 +47,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function adresses(){
-        return $this->belongsToMany(Address::class);
+    public function isAdmin()
+    {
+        return $this->type === 'admin';
     }
 }
