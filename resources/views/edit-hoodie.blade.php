@@ -23,26 +23,26 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <input type="file" class="form-control" name="image">
-
+                            <span style="color: red">@error('price'){{ $message }} @enderror</span>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label >Name</label>
                         <input type="text" class="form-control" name="name"  value="{{old('name') ?? $hoodie->name}}" >
-
+                        <span style="color: red">@error('price'){{ $message }} @enderror</span>
                     </div>
 
                     <div class="form-group">
                         <label >Description</label>
                         <input type="text" class="form-control" name="description" value="{{old('description') ?? $hoodie->description}}">
-
+                        <span style="color: red">@error('price'){{ $message }} @enderror</span>
                     </div>
 
                     <div class="form-group">
                         <label >Color</label>
                         <input type="text" class="form-control" name="color" value="{{old('color') ?? $hoodie->color}}">
-
+                        <span style="color: red">@error('price'){{ $message }} @enderror</span>
                     </div>
 
                     <div class="form-group">
@@ -51,8 +51,15 @@
 
                     </div>
 
+                <div class="form-group">
+                    <label >Price id</label>
+                    <input type="number" class="form-control" name="id_product"  value="{{old('id_product') ?? $hoodie->id_product}}">
+                    <span style="color: red">@error('price id'){{ $message }} @enderror</span>
+                </div>
+
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary show_confirm">Save</button>
+
                     </div>
 
             </div>
@@ -95,4 +102,26 @@
         }
     </script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    <script>
+
+        $('.show_confirm').click(function(event) {
+            var form =  $(this).closest("form");
+            var name = $(this).data("name");
+            event.preventDefault();
+            swal({
+                title: `Are you sure you want to update this hoodie?`,
+                text: "If you update this, it will be changed.",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                    }
+                });
+        });
+
+    </script>
 @endsection

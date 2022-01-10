@@ -15,31 +15,31 @@
     <link rel="stylesheet" href="{{asset('styles/style.css?version=1')}}" >
 
 </head>
-<body class="log-body">
-        <h1 class="h1-login">Prihlásenie</h1>
+<body>
 
-        <form method="POST" action="">
-        <div class="login">
-            <div>
-                Email
-                <div>
-                    <input type="email" name="email" value="{{ old('email') }}">
-                </div>
+<form action="">
+    <div class="container">
+        <h1>Register</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
 
-         </div>
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
-         <div>
-             Password
-             <div>
-                 <input type="password" name="password" id="password">
-             </div>
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
 
-         </div>
+        <label for="psw-repeat"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+        <hr>
+        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
-         <div class="log-butt">
-             <button class="button log-butt-style">Button</button>
-         </div>
-        </div>
+        <button type="submit" class="registerbtn">Register</button>
+    </div>
+
+    <div class="container signin">
+        <p>Already have an account? <a href="{{route('login')}}">Sign in</a>.</p>
+    </div>
 </form>
 </body>
 </html>
