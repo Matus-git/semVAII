@@ -90,11 +90,18 @@
                 </li>
             @endif
 
-
+            @if(Auth::check())
                     <li class="nav-item" >
-                        <a class="nav-link" href="{{route('logout')}}">Logout</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="nav-item">
+                            @csrf
+                            <a class="nav-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();"> Logout</a>
+                        </form>
                     </li>
 
+
+                @else
                     <li class="nav-item" >
                         <a class="nav-link" href="{{route('login')}}">Login</a>
                     </li>
@@ -102,6 +109,9 @@
                     <li class="nav-item" >
                         <a class="nav-link" href="{{route('registration')}}">Sign</a>
                     </li>
+
+                @endif
+
 
 
         </ul>

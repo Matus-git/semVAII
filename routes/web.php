@@ -61,14 +61,8 @@ Route::get('/accessories', function () {
     return view('accessories');
 })->name('accessories');
 
-Route::get('/create-hoodie', function () {
-    return view('create-hoodie');
-})->name('create-hoodie');
 
 
-Route::get('/create-price', function () {
-    return view('create-price');
-})->name('create-price');
 
 Route::get('/login', function () {
     return view('login');
@@ -82,20 +76,34 @@ Route::get('/registration', function () {
 
 Route::resource('hoodies',HoodieController::class);
 
-Route::post('/store',[HoodieController::class,'store'])->name('store');
-Route::get('/hoodie/{id_hoodie}',[HoodieController::class,'delete'])->name('delete');
-
-
-Route::get('/edit-hoodie/{id_hoodie}',[HoodieController::class,'edit'])->name('edit-hoodie');
-Route::post('/update/{id_hoodie}',[HoodieController::class,'update'])->name('update');
-
-Route::post('/create-hoodie/fetch',[ProductController::class,'fetch'])->name('create-hoodie.fetch');
-Route::get('/create-hoodie/getProducts',[ProductController::class,'getProducts'])->name('create-hoodie.getProducts');
-
-Route::post('/store/price',[ProductController::class,'store'])->name('store.price');
 
 
 
+
+Route::group(['middleware' => 'is_admin'], function () {
+    Route::post('/store',[HoodieController::class,'store'])->name('store');
+
+    Route::get('/hoodie/{id_hoodie}',[HoodieController::class,'delete'])->name('delete');
+
+    Route::get('/edit-hoodie/{id_hoodie}',[HoodieController::class,'edit'])->name('edit-hoodie');
+
+    Route::post('/update/{id_hoodie}',[HoodieController::class,'update'])->name('update');
+
+    Route::post('/create-hoodie/fetch',[ProductController::class,'fetch'])->name('create-hoodie.fetch');
+
+    Route::get('/create-hoodie/getProducts',[ProductController::class,'getProducts'])->name('create-hoodie.getProducts');
+
+    Route::post('/store/price',[ProductController::class,'store'])->name('store.price');
+
+    Route::get('/create-price', function () {
+        return view('create-price');
+    })->name('create-price');
+
+    Route::get('/create-hoodie', function () {
+        return view('create-hoodie');
+    })->name('create-hoodie');
+
+});
 
 
 

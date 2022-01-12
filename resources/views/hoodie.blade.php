@@ -6,28 +6,32 @@
         <div class="pull-left">
             <h2>Mikiny</h2>
         </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{route('create-hoodie')}}" title="Create a hoodie"> <i class="fas fa-plus-circle">Insert</i> </a>
 
-        </div>
-
-
+        @if(Auth::check())
+            @if(Auth::user()->isAdmin())
+            <div class="pull-right">
+                <a class="btn btn-primary" href="{{route('create-hoodie')}}" title="Create a hoodie"> <i class="fas fa-plus-circle">Insert</i> </a>
+            </div>
+            @endif
+        @endif
 
     </div>
         @foreach($hoodies as $hoodie)
 
             <div class="container">
-                <div class="shop-item">
-                    <a class="btn btn-success" href="{{route('edit-hoodie',$hoodie->id_hoodie)}}"><i>Edit</i>
-                    </a>
+                @if(Auth::check())
+                    @if(Auth::user()->isAdmin())
+                    <div class="shop-item">
+                        <a class="btn btn-success" href="{{route('edit-hoodie',$hoodie->id_hoodie)}}"><i>Edit</i> </a>
 
-                    <form method="POST" action=""{{route('delete',$hoodie['id_hoodie'])}}">
-                        @csrf
-                        <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
-                    </form>
+                        <form method="GET" action="{{route('delete',$hoodie['id_hoodie'])}}">
+                            @csrf
+                            <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
+                        </form>
+                    </div>
 
-
-                </div>
+                    @endif
+                @endif
 
                 <div class="row">
 
@@ -50,7 +54,6 @@
               </div>
             </div>
             @endforeach
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
     <script>
 
@@ -73,7 +76,5 @@
         });
 
     </script>
-
-
 @endsection
 

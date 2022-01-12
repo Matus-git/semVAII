@@ -116,8 +116,8 @@
                 buttons: true,
                 dangerMode: true,
             })
-                .then((willDelete) => {
-                    if (willDelete) {
+                .then((willEdit) => {
+                    if (willEdit) {
                         form.submit();
                     }
                 });
