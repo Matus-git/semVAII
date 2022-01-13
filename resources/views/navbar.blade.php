@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="{{asset('styles/style.css?version=1')}}" >
 
 </head>
+
 <body>
 <nav class="navbar navbar-expand-sm navbar-dark bg-black ">
     <a class="navbar-brand" href="{{route('home')}}"><img src="images/logo.png" alt="logo"></a>
@@ -91,29 +92,46 @@
             @endif
 
             @if(Auth::check())
-                    <li class="nav-item" >
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="nav-item">
-                            @csrf
-                            <a class="nav-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                               document.getElementById('logout-form').submit();"> Logout</a>
-                        </form>
-                    </li>
 
+                    <li class="nav-item  dropdown">
+                        <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Profil
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="{{route('hoodie')}}">My profile</a>
+
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();"> {{ __('Logout') }}</a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+
+                        </div>
+                    </li>
 
                 @else
-                    <li class="nav-item" >
+                    @if(Route::is('login'))
+                    <li class="nav-item active" >
                         <a class="nav-link" href="{{route('login')}}">Login</a>
                     </li>
+                    @else
+                        <li class="nav-item " >
+                            <a class="nav-link" href="{{route('login')}}">Login</a>
+                        </li>
+                    @endif
 
-                    <li class="nav-item" >
-                        <a class="nav-link" href="{{route('registration')}}">Sign</a>
-                    </li>
-
+                        @if(Route::is('registration'))
+                            <li class="nav-item active" >
+                                <a class="nav-link" href="{{route('registration')}}">Sign</a>
+                            </li>
+                        @else
+                            <li class="nav-item" >
+                                <a class="nav-link" href="{{route('registration')}}">Sign</a>
+                            </li>
+                        @endif
                 @endif
-
-
-
         </ul>
     </div>
 </nav>

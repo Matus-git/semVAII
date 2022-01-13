@@ -1,45 +1,43 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>home</title>
+@extends('navbar')
 
-    <!-- BOOTSTRAP -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+@section('content')
+<main class="login-form">
+    <div class="cotainer">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <h3 class="card-header text-center">Login</h3>
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <div class="form-group mb-3">
+                                <input type="text" placeholder="Email" id="email" class="form-control" name="email" required
+                                       autofocus>
+                                @if ($errors->has('email'))
+                                    <span class="text-danger">{{ $errors->first('email') }}</span>
+                                @endif
+                            </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+                            <div class="form-group mb-3">
+                                <input type="password" placeholder="Password" id="password" class="form-control" name="password" required>
+                                @if ($errors->has('password'))
+                                    <span class="text-danger">{{ $errors->first('password') }}</span>
+                                @endif
+                            </div>
 
-    <link rel="stylesheet" href="{{asset('styles/style.css?version=1')}}" >
+                            <div class="form-group mb-3">
+                                <a href="{{route('registration')}}"> Don't have an account ? </a>
+                            </div>
 
-</head>
-<body class="log-body">
-        <h1 class="h1-login">Prihlásenie</h1>
+                            <div class="d-grid mx-auto">
+                                <button type="submit" class="btn btn-dark btn-block">Login</button>
+                            </div>
+                        </form>
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-        <div class="login">
-            <div>
-                Email
-                <div>
-                    <input  type="email" placeholder="Enter email" name="email" required autofocus value="{{ old('email') }}">
+                    </div>
                 </div>
-         </div>
-
-         <div>
-             Password
-             <div>
-                 <input type="password" placeholder="Password" id="password" name="password" required>
-
-             </div>
-         </div>
-
-            <div class=" log-butt">
-                <button type="submit" >Login</button>
             </div>
         </div>
-</form>
-</body>
-</html>
+    </div>
+</main>
+@endsection

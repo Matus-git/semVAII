@@ -34,7 +34,7 @@ class ProductController extends Controller
         $post->save();
 
         if ($post->save()){
-            return back()->with('success','Price inserted successfully');
+            return redirect('create-hoodie')->with('success','Price inserted successfully');
         }else{
             return back()->with('fail','Something went wrong');
         }

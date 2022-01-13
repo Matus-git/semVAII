@@ -21,7 +21,9 @@
             <div class="container">
                 @if(Auth::check())
                     @if(Auth::user()->isAdmin())
-                    <div class="shop-item">
+
+
+                    <div class=" btn-group shop-item">
                         <a class="btn btn-success" href="{{route('edit-hoodie',$hoodie->id_hoodie)}}"><i>Edit</i> </a>
 
                         <form method="GET" action="{{route('delete',$hoodie['id_hoodie'])}}">
@@ -54,12 +56,12 @@
               </div>
             </div>
             @endforeach
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
     <script>
 
         $('.show_confirm').click(function(event) {
             var form =  $(this).closest("form");
-            var name = $(this).data("name");
             event.preventDefault();
             swal({
                 title: `Are you sure you want to delete this record?`,

@@ -11,6 +11,13 @@
          {{\Illuminate\Support\Facades\Session::get('fail')}}
      </div>
  @endif
+
+ <div class="btn-group">
+     <a class="btn btn-primary" href="{{route('create-price')}}" title=""> <i class="fas fa-plus-circle">Create Price</i> </a>
+     <a class="btn btn-primary" href="" title=""> <i class="fas fa-plus-circle">Show Price's</i> </a>
+ </div>
+
+
     <form action="{{route('store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="create-row">
@@ -83,9 +90,7 @@
         </div>
 
     </form>
- <div class="pull-right">
-     <a class="btn btn-primary" href="{{route('create-price')}}" title=""> <i class="fas fa-plus-circle">Create Price</i> </a>
- </div>
+
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 

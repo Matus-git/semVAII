@@ -12,6 +12,9 @@
             {{\Illuminate\Support\Facades\Session::get('fail')}}
         </div>
     @endif
+    <div class="pull-right">
+        <a class="btn btn-primary" href="{{route('create-hoodie')}}" title="Create a hoodie"> <i class="fas fa-plus-circle">Back</i> </a>
+    </div>
     <form action="{{route('store.price')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="create-row">
