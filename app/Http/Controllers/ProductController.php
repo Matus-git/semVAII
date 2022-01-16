@@ -40,4 +40,53 @@ class ProductController extends Controller
         }
     }
 
+    function showPrices(){
+        $prices = Product::all();
+        return view('show-prices',['prices'=>$prices]);
+    }
+
+    function editPrice($id){
+        $price = DB::table('products')->where('id_product',$id)->first();
+        return view('edit-price',compact('price'));
+    }
+
+    function updatePrice(Request $request,$id)
+    {
+        $request->validate([
+            'name'=>'required',
+            'id_product'=>'required',
+            'description' => 'required',
+            'color'=>'required',
+            'size'=>'required'
+        ]);
+
+        $data = array();
+        $data['price'] =  $request->price;
+        $data['valid_from'] = $request->valid_from;
+        $data['valid_until'] =  $request->valid_until;
+
+        $price = DB::table('products')->where('id_product',$id)->first();
+
+        if ($price != null ){
+            $post  = DB::table('products')->where('id_product',$id);
+            $post->update($data);
+            return redirect('show-prices')->with('success','Price updated successfully');
+
+        }else{
+            return back()->with('fail','Something went wrong');
+        }
+    }
+
+    function deletePrice($id){
+        $product = DB::table('hoodies')->where('id_product',$id)->value('id_hoodie');
+
+        if ($product < 1 ){
+            $price = DB::table('products')->where('id_product',$id);
+            $price->delete();
+            return back()->with('success','Price deleted successfully');
+        } else {
+            return back()->with('fail','There is a product which is using this price ! Change product price than delete');
+        }
+    }
+
 }

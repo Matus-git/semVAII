@@ -60,7 +60,7 @@ class RegisterController extends Controller
             'state' => ['required', 'string', 'min:3'],
             'city' => ['required', 'string', 'min:3'],
             'street' => ['required', 'string', 'min:3'],
-            'post_code' => ['required', 'string', 'min:6', 'max:15'],
+            'post_code' => ['required', 'string', 'min:5', 'max:15'],
             'house_number'=> ['required', 'string', 'min:1', 'max:15'],
         ]);
     }

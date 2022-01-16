@@ -90,7 +90,7 @@ class HoodieController extends Controller
         if ($product != null ){
             $post  = DB::table('hoodies')->where('id_hoodie',$id_hoodie);
             $post->update($data);
-            return back()->with('success','Hoodie updated successfully');
+            return redirect('hoodie')->with('success','Hoodie updated successfully');
         }else{
             return back()->with('fail','Something went wrong');
         }

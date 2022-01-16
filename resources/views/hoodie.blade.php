@@ -2,6 +2,20 @@
 
 @section('content')
 
+    @if(\Illuminate\Support\Facades\Session::get('success'))
+        <div class="alert alert-success">
+            {{\Illuminate\Support\Facades\Session::get('success')}}
+        </div>
+    @endif
+    @if(\Illuminate\Support\Facades\Session::get('fail'))
+        <div class="alert alert-danger">
+            {{\Illuminate\Support\Facades\Session::get('fail')}}
+        </div>
+    @endif
+
+
+
+
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2>Mikiny</h2>

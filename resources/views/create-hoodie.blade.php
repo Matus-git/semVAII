@@ -14,7 +14,7 @@
 
  <div class="btn-group">
      <a class="btn btn-primary" href="{{route('create-price')}}" title=""> <i class="fas fa-plus-circle">Create Price</i> </a>
-     <a class="btn btn-primary" href="" title=""> <i class="fas fa-plus-circle">Show Price's</i> </a>
+     <a class="btn btn-primary" href="{{route('prices')}}" title=""> <i class="fas fa-plus-circle">Show Price's</i> </a>
  </div>
 
 

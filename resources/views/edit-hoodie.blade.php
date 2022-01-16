@@ -23,32 +23,32 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <input type="file" class="form-control" name="image">
-                            <span style="color: red">@error('price'){{ $message }} @enderror</span>
+                            <span style="color: red">@error('image'){{ $message }} @enderror</span>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label >Name</label>
                         <input type="text" class="form-control" name="name"  value="{{old('name') ?? $hoodie->name}}" >
-                        <span style="color: red">@error('price'){{ $message }} @enderror</span>
+                        <span style="color: red">@error('name'){{ $message }} @enderror</span>
                     </div>
 
                     <div class="form-group">
                         <label >Description</label>
                         <input type="text" class="form-control" name="description" value="{{old('description') ?? $hoodie->description}}">
-                        <span style="color: red">@error('price'){{ $message }} @enderror</span>
+                        <span style="color: red">@error('description'){{ $message }} @enderror</span>
                     </div>
 
                     <div class="form-group">
                         <label >Color</label>
                         <input type="text" class="form-control" name="color" value="{{old('color') ?? $hoodie->color}}">
-                        <span style="color: red">@error('price'){{ $message }} @enderror</span>
+                        <span style="color: red">@error('color'){{ $message }} @enderror</span>
                     </div>
 
                     <div class="form-group">
                         <label >Size</label>
                         <input type="text" class="form-control" name="size"  value="{{old('size') ?? $hoodie->size}}">
-
+                        <span style="color: red">@error('size'){{ $message }} @enderror</span>
                     </div>
 
                 <div class="form-group">

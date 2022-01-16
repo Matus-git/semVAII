@@ -9,12 +9,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-
-{{--    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"--}}
-{{--            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"--}}
-{{--            crossorigin="anonymous">--}}
-{{--    </script>--}}
-
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
@@ -35,7 +29,7 @@
 
 <body>
 <nav class="navbar navbar-expand-sm navbar-dark bg-black ">
-    <a class="navbar-brand" href="{{route('home')}}"><img src="images/logo.png" alt="logo"></a>
+    <a class="navbar-brand" href="{{route('home')}}"><img src="photos/logo.png" alt="logo"></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -98,7 +92,7 @@
                             Profil
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="{{route('hoodie')}}">My profile</a>
+                            <a class="dropdown-item" href="{{ route('my-profile') }}" >My profile</a>
 
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
