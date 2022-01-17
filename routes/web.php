@@ -114,6 +114,8 @@ Route::group(['middleware' => 'is_admin'], function () {
     Route::get('/edit-price/{id}',[ProductController::class,'editPrice'])->name('edit-price');
     Route::post('/update-price/{id}',[ProductController::class,'updatePrice'])->name('update-price');
 
+    Route::get('/all-profiles/',[ProfileController::class,'showAllProfiles'])->name('all-profiles');
+
 });
 
 

@@ -13,9 +13,6 @@
         </div>
     @endif
 
-
-
-
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2>Mikiny</h2>

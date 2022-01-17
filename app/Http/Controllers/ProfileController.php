@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
+use App\Models\Address;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -17,6 +18,13 @@ class ProfileController extends Controller
         $address = DB::table('addresses')->where('id',$id_address)->first();
 
         return view('my-profile')->with('data', ['address' => $address, 'profile' => $profile]);
+    }
+
+    function showAllProfiles(){
+
+        $users = User::join('addresses', 'addresses.id', '=', 'users.address_id')
+            ->get(['users.*', 'addresses.*']);
+        return view('all-profiles',['items'=>$users]);
     }
 
     public function editProfile(){

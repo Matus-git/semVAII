@@ -93,7 +93,9 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="{{ route('my-profile') }}" >My profile</a>
-
+                        @if(Auth::user()->isAdmin())
+                                <a class="dropdown-item" href="{{ route('all-profiles') }}" >All profiles</a>
+                        @endif
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                document.getElementById('logout-form').submit();"> {{ __('Logout') }}</a>

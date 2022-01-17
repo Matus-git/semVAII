@@ -14,7 +14,7 @@
 
 
 
-    <form name="edit" action=" {{route('update-price',$price->id)}}" method="post" >
+    <form name="edit" action=" {{route('update-profile',$item->id)}}" method="post" >
         @csrf
 
         <div >
@@ -53,7 +53,7 @@
             var form =  $(this).closest("form");
             event.preventDefault();
             swal({
-                title: `Are you sure you want to your profile ?`,
+                title: `Are you sure you want to edit your profile ?`,
                 text: "If you update this, it will be changed.",
                 icon: "warning",
                 buttons: true,
