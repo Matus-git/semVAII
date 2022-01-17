@@ -23,7 +23,6 @@
         <div class="create-row">
                 <div class="col-md-6 col-md-offset-3">
 
-
                         <div class="col-md-12">
                             <div class="form-group">
                                 <input type="file" name="image" >
@@ -60,25 +59,25 @@
                         <div class="form-group">
                             <div class="class input-field">
                                 <label>Price</label>
-                                <input type="" class="form-control" name="price" id="priceID" placeholder="Enter price">
+                                <input type="number" class="form-control" name="price" id="priceID" placeholder="Enter price">
                                 <span style="color: red">@error('price'){{ $message }} @enderror</span>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label>Price id</label>
-                            <input type="" class="form-control" name="id_product" id="id_product" placeholder="">
+                            <input type="number" class="form-control" name="id_product" id="id_product" placeholder="Automatic fill ">
                         </div>
 
 
                         <div class="form-group">
                             <label>Price from</label>
-                            <input type="" class="form-control" name="valid_from" id="valid_from" placeholder="Enter date">
+                            <input type="date" class="form-control" name="valid_from" id="valid_from" >
                         </div>
 
                         <div class="form-group">
                             <label>Price until</label>
-                            <input type="" class="form-control" name="valid_until" id="valid_until" placeholder="Enter date">
+                            <input type="date" class="form-control" name="valid_until" id="valid_until" >
                         </div>
 
                         <div class="form-group">
@@ -93,10 +92,8 @@
 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
  <script>
         $(document).ready(function(){
-            console.log('text');
             $.ajax({
                 type:'get',
                 url:"{{ route('create-hoodie.getProducts') }}",
@@ -109,23 +106,16 @@
                         dataProd[prodArray[i].price] =null;
                         dataProdFrom[prodArray[i].price] = prodArray[i];
                     }
-                    console.log("dataProdFrom");
-                    console.log(dataProdFrom);
                     $('input#priceID').autocomplete({
                         data: dataProd,
                         onAutocomplete:function(reqdata){
-                            console.log(reqdata);
                             $('#id_product').val(dataProdFrom[reqdata] ['id_product']);
                             $('#valid_from').val(dataProdFrom[reqdata] ['valid_from']);
                             $('#valid_until').val(dataProdFrom[reqdata] ['valid_until']);
                         }
                     });
-                    //end
                 }
             })
         })
-
  </script>
-
-
 @endsection

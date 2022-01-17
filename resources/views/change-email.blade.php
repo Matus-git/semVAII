@@ -13,7 +13,7 @@
 
 
 
-    <form name="edit" action=" {{route('update-email',$item->id)}}" method="post" >
+    <form name="edit" action="{{route('update-email',$item->id)}}" method="post" >
         @csrf
 
         <div >

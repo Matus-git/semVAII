@@ -29,13 +29,13 @@
 
                 <div class="form-group">
                     <label >Valid from</label>
-                    <input type="date" class="form-control" name="valid_from" placeholder="Enter date from">
+                    <input type="date" class="form-control" name="valid_from" >
                     <span style="color: red">@error('valid_from'){{ $message }} @enderror</span>
                 </div>
 
                 <div class="form-group">
                     <label >Valid until</label>
-                    <input type="date" class="form-control" name="valid_until" placeholder="Enter date to">
+                    <input type="date" class="form-control" name="valid_until" >
                     <span style="color: red">@error('valid_until'){{ $message }} @enderror</span>
                 </div>
 

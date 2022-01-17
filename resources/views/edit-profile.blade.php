@@ -22,19 +22,19 @@
 
                 <div class="form-group">
                     <label >First name</label>
-                    <input type="text" class="form-control" name="name" value="{{old('name') ?? $item->name}}" >
+                    <input type="text" class="form-control" name="name" value="{{$item->name}}" >
                     <span style="color: red">@error('name'){{ $message }} @enderror</span>
                 </div>
 
                 <div class="form-group">
                     <label >Last name</label>
-                    <input type="text" class="form-control" name="surname" value="{{old('surname') ?? $item->surname}}" >
+                    <input type="text" class="form-control" name="surname" value="{{$item->surname}}" >
                     <span style="color: red">@error('surname'){{ $message }} @enderror</span>
                 </div>
 
                 <div class="form-group">
                     <label >Phone number</label>
-                    <input type="text" class="form-control" name="phone_number" value="{{old('phone_number') ?? $item->phone_number}}" >
+                    <input type="number" class="form-control" name="phone_number" value="{{$item->phone_number}}" >
                     <span style="color: red">@error('phone_number'){{ $message }} @enderror</span>
                 </div>
 
