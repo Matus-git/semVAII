@@ -25,6 +25,7 @@
                         <th>Price</th>
                         <th>Date</th>
                         <th>Date</th>
+                        <th>Buttons</th>
                     </tr>
                 <tr>
                     <td>{{$price['id_product']}}</td>

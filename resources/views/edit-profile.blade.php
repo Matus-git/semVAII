@@ -12,9 +12,7 @@
         </div>
     @endif
 
-
-
-    <form name="edit" action=" {{route('update-profile',$item->id)}}" method="post" >
+    <form name="edit" action="{{route('update-profile',$item->id)}}" method="post" >
         @csrf
 
         <div >

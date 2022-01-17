@@ -28,7 +28,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-sm navbar-dark bg-black ">
+<nav class="navbar navbar-expand-md navbar-dark bg-black ">
     <a class="navbar-brand" href="{{route('home')}}"><img src="photos/logo.png" alt="logo"></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

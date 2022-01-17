@@ -37,12 +37,4 @@
         @endforeach
     </div>
 
-    <script type="text/javascript">
-        setInterval(
-            function (){
-                $('#refreshData').load('#refreshData').fadeIn();
-            },10000);
-    </script>
-
-
 @endsection

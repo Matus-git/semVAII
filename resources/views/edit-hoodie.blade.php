@@ -29,31 +29,31 @@
 
                     <div class="form-group">
                         <label >Name</label>
-                        <input type="text" class="form-control" name="name"  value="{{old('name') ?? $hoodie->name}}" >
+                        <input type="text" class="form-control" name="name"  value="{{old('name')??$hoodie->name}}" >
                         <span style="color: red">@error('name'){{ $message }} @enderror</span>
                     </div>
 
                     <div class="form-group">
                         <label >Description</label>
-                        <input type="text" class="form-control" name="description" value="{{old('description') ?? $hoodie->description}}">
+                        <input type="text" class="form-control" name="description" value="{{old('description')??$hoodie->description}}" >
                         <span style="color: red">@error('description'){{ $message }} @enderror</span>
                     </div>
 
                     <div class="form-group">
                         <label >Color</label>
-                        <input type="text" class="form-control" name="color" value="{{old('color') ?? $hoodie->color}}">
+                        <input type="text" class="form-control" name="color" value="{{old('color')??$hoodie->color}}" >
                         <span style="color: red">@error('color'){{ $message }} @enderror</span>
                     </div>
 
                     <div class="form-group">
                         <label >Size</label>
-                        <input type="text" class="form-control" name="size"  value="{{old('size') ?? $hoodie->size}}">
+                        <input type="text" class="form-control" name="size"  value="{{old('size')??$hoodie->size}}" >
                         <span style="color: red">@error('size'){{ $message }} @enderror</span>
                     </div>
 
                 <div class="form-group">
                     <label >Price id</label>
-                    <input type="number" class="form-control" name="id_product"  value="{{old('id_product') ?? $hoodie->id_product}}">
+                    <input type="number" class="form-control" name="id_product"  value="{{old('id_product')??$hoodie->id_product}}" >
                     <span style="color: red">@error('price id'){{ $message }} @enderror</span>
                 </div>
 
