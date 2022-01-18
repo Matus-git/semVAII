@@ -1,7 +1,7 @@
 @extends('navbar')
 @section('content')
 
-    <div id="refreshData" >
+    <div  style="overflow-x:auto;">
 
         @foreach($items as $data)
             @if(Auth::user()->isAdmin())

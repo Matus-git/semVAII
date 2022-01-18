@@ -16,7 +16,7 @@
     <div class=" row">
 
         <div class="signIn col-md align-self-center">
-            <form class=" form" method="POST" action="{{ route('register')}}">
+            <form class=" form" method="POST" action="{{ route('register')}}" >
                 @csrf
                 <div class="form-group col-md">
                     <label for="name">Name</label>
@@ -131,5 +131,4 @@
         </div>
     </div>
 </div>
-
 @endsection

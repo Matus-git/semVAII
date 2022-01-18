@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ShirtController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HoodieController;
 use App\Http\Controllers\ProductController;
@@ -50,6 +51,8 @@ Route::get('/hoodie',[HoodieController::class,'show'])->name('hoodie');
 Route::get('/shirt', function () {
     return view('shirt');
 })->name('shirt');
+
+Route::get('/shirt',[ShirtController::class,'show'])->name('shirt');
 
 Route::get('/cap', function () {
     return view('cap');
@@ -98,6 +101,15 @@ Route::group(['middleware' => 'is_admin'], function () {
     Route::get('/create-hoodie/getProducts',[ProductController::class,'getProducts'])->name('create-hoodie.getProducts');
 
 
+    Route::post('/store-shirt',[ShirtController::class,'save'])->name('store-shirt');
+
+    Route::get('/shirt/{id_shirt}',[ShirtController::class,'delete'])->name('delete-shirt');
+
+    Route::get('/edit-shirt/{id_shirt}',[ShirtController::class,'edit'])->name('edit-shirt');
+
+    Route::post('/update-shirt/{id_shirt}',[ShirtController::class,'update'])->name('update-shirt');
+
+
     Route::post('/store/price',[ProductController::class,'store'])->name('store.price');
 
     Route::get('/create-price', function () {
@@ -107,6 +119,10 @@ Route::group(['middleware' => 'is_admin'], function () {
     Route::get('/create-hoodie', function () {
         return view('create-hoodie');
     })->name('create-hoodie');
+
+    Route::get('/create-shirt', function () {
+        return view('create-shirt');
+    })->name('create-shirt');
 
     Route::get('/show-prices/',[ProductController::class,'showPrices'])->name('prices');
     Route::get('/delete-prices/{id_hoodie}',[ProductController::class,'deletePrice'])->name('delete-price');

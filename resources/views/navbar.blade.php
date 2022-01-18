@@ -29,7 +29,7 @@
 
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-black ">
-    <a class="navbar-brand" href="{{route('home')}}"><img src="photos/logo.png" alt="logo"></a>
+    <a class="mainTitle navbar-brand " href="{{route('home')}}">Autosport</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

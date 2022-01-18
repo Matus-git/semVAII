@@ -64,7 +64,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group" style="display: none;">
                             <label>Price id</label>
                             <input type="number" class="form-control" name="id_product" id="id_product" placeholder="Automatic fill ">
                         </div>

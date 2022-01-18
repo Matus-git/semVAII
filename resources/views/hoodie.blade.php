@@ -58,8 +58,9 @@
                         </strong>
                         <div class="shop-item-final">
                             <div >
-                                {{$hoodie['color']}}
-                                 {{$hoodie['size']}}
+                                <p> farba: {{$hoodie['color']}} </p>
+                                <p> velkost:  {{$hoodie['size']}} </p>
+                                <p> cena: {{$hoodie['price']}} eur </p>
                             </div>
                         </div>
                     </div>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHoodiesTable extends Migration
+class CreateShirtsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateHoodiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('hoodies', function (Blueprint $table) {
-            $table->id('id_hoodie');
+        Schema::create('shirts', function (Blueprint $table) {
+            $table->id('id_shirt');
             $table->foreignId('id_product')->nullable()->references('id_product')->on('products');
             $table->string('image');
             $table->string('name');
@@ -32,6 +32,6 @@ class CreateHoodiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hoodies');
+        Schema::dropIfExists('shirts');
     }
 }

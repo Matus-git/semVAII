@@ -21,7 +21,7 @@ class ProductController extends Controller
     {
 
         $request->validate([
-            'price'=>'required',
+            'price'=>'required|numeric',
             'valid_from' => 'required',
             'valid_until'=>'required'
         ]);
@@ -53,11 +53,9 @@ class ProductController extends Controller
     function updatePrice(Request $request,$id)
     {
         $request->validate([
-            'name'=>'required',
-            'id_product'=>'required',
-            'description' => 'required',
-            'color'=>'required',
-            'size'=>'required'
+            'price'=>'required|numeric',
+            'valid_from' => 'required',
+            'valid_until'=>'required'
         ]);
 
         $data = array();
@@ -78,9 +76,10 @@ class ProductController extends Controller
     }
 
     function deletePrice($id){
-        $product = DB::table('hoodies')->where('id_product',$id)->value('id_hoodie');
+        $productH = DB::table('hoodies')->where('id_product',$id)->value('id_hoodie');
+        $productS = DB::table('shirts')->where('id_product',$id)->value('id_shirt');
 
-        if ($product < 1 ){
+        if ($productH < 1 && $productS < 1){
             $price = DB::table('products')->where('id_product',$id);
             $price->delete();
             return back()->with('success','Price deleted successfully');

@@ -14,7 +14,7 @@
 
     @foreach($prices as $price)
 
-        <div class="container">
+        <div style="overflow-x:auto;">
             @if(Auth::check())
                 @if(Auth::user()->isAdmin())
                 @endif

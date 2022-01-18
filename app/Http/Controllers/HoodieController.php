@@ -21,9 +21,9 @@ class HoodieController extends Controller
             'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'id_product'=>'required',
             'name'=>'required',
-            'description' => 'required',
-            'color'=>'required',
-            'size'=>'required'
+            'description' => 'required|string|max:255',
+            'color'=>'required|string|max:10',
+            'size'=>'required|string|max:5'
         ]);
 
         $path = $request->file('image');
@@ -50,8 +50,10 @@ class HoodieController extends Controller
     }
 
     function show(){
-       $hoodies = Hoodie::all();
-       return view('hoodie',['hoodies'=>$hoodies]);
+
+        $hoodies = Hoodie::join('products', 'products.id_product', '=', 'hoodies.id_product')
+            ->get(['hoodies.*', 'products.*']);
+        return view('hoodie',['hoodies'=>$hoodies]);
     }
 
     function edit($id_hoodie)
@@ -62,12 +64,13 @@ class HoodieController extends Controller
 
    function update(Request $request, $id_hoodie)
    {
+
         $request->validate([
-            'name'=>'required',
             'id_product'=>'required',
-            'description' => 'required',
-            'color'=>'required',
-            'size'=>'required'
+            'name'=>'required',
+            'description' => 'required|string|max:255',
+            'color'=>'required|string|max:10',
+            'size'=>'required|string|max:5'
         ]);
 
 
