@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Shirt extends Model
+class Accessorie extends Model
 {
     use HasFactory;
-    protected $table = 'shirts';
+    protected $table = 'accessories';
     protected $fillable =[
         'id_product',
         'name',
@@ -16,7 +16,7 @@ class Shirt extends Model
         'color',
         'size',
     ];
-    public function shirts()
+    public function accessories()
     {
         return $this->belongsToMany(Product::class);
     }

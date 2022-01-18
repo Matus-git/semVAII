@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccessoriesController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\VerificationController;
@@ -54,13 +55,12 @@ Route::get('/shirt', function () {
 
 Route::get('/shirt',[ShirtController::class,'show'])->name('shirt');
 
-Route::get('/cap', function () {
-    return view('cap');
-})->name('cap');
 
 Route::get('/accessories', function () {
     return view('accessories');
 })->name('accessories');
+
+Route::get('/accessories',[AccessoriesController::class,'show'])->name('accessories');
 
 Route::get('/login', function () {
     return view('login');
@@ -109,6 +109,14 @@ Route::group(['middleware' => 'is_admin'], function () {
 
     Route::post('/update-shirt/{id_shirt}',[ShirtController::class,'update'])->name('update-shirt');
 
+    Route::post('/store-acc',[AccessoriesController::class,'save'])->name('store-acc');
+
+    Route::get('/acc/{id}',[AccessoriesController::class,'delete'])->name('delete-acc');
+
+    Route::get('/edit-acc/{id}',[AccessoriesController::class,'edit'])->name('edit-acc');
+
+    Route::post('/update-acc/{id}',[AccessoriesController::class,'update'])->name('update-acc');
+
 
     Route::post('/store/price',[ProductController::class,'store'])->name('store.price');
 
@@ -123,6 +131,10 @@ Route::group(['middleware' => 'is_admin'], function () {
     Route::get('/create-shirt', function () {
         return view('create-shirt');
     })->name('create-shirt');
+
+    Route::get('/create-acc', function () {
+        return view('create-accessories');
+    })->name('create-acc');
 
     Route::get('/show-prices/',[ProductController::class,'showPrices'])->name('prices');
     Route::get('/delete-prices/{id_hoodie}',[ProductController::class,'deletePrice'])->name('delete-price');

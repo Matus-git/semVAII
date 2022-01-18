@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Shirt;
+use App\Models\Accessorie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
-class ShirtController extends Controller
+
+class AccessoriesController extends Controller
 {
     function index(){
-        return view('shirt');
+        return view('accessories');
     }
 
     function save(Request $request){
@@ -35,34 +36,34 @@ class ShirtController extends Controller
 
 
             $data =[
-              'image' => $image,
-              'id_product' => $request->id_product,
-              'name' =>  $request->name,
-              'description' =>  $request->description,
-              'color' =>  $request->color,
-              'size' => $request->size
+                'image' => $image,
+                'id_product' => $request->id_product,
+                'name' =>  $request->name,
+                'description' =>  $request->description,
+                'color' =>  $request->color,
+                'size' => $request->size
             ];
-            $query = DB::table('shirts')->insert($data);
+            $query = DB::table('accessories')->insert($data);
             if ($query){
-                return response()->json(['status'=>1,'msg'=>'The shirt has been created succsesfully']);
+                return response()->json(['status'=>1,'msg'=>'The shirt has been created successfully']);
             }
         }
     }
 
 
     function show(){
-        $shirts = Shirt::join('products', 'products.id_product', '=', 'shirts.id_product')
-            ->get(['shirts.*', 'products.*']);
-        return view('shirt',['shirts'=>$shirts]);
+        $accessories = Accessorie::join('products', 'products.id_product', '=', 'accessories.id')
+            ->get(['accessories.*', 'products.*']);
+        return view('accessories',['items'=>$accessories]);
     }
 
-    function edit($id_shirt)
+    function edit($id)
     {
-        $shirt = DB::table('shirts')->where('id_shirt',$id_shirt)->first();
-        return view('edit-shirt',compact('shirt'));
+        $item = DB::table('accessories')->where('id',$id)->first();
+        return view('edit-accessories',compact('item'));
     }
 
-    function update(Request $request, $id_shirt)
+    function update(Request $request, $id)
     {
         $request->validate([
             'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
@@ -91,19 +92,18 @@ class ShirtController extends Controller
         $data['size'] =  $request->size;
 
         if ($product != null ){
-            $post  = DB::table('shirts')->where('id_shirt',$id_shirt);
+            $post  = DB::table('accessories')->where('id',$id);
             $post->update($data);
-            return redirect('shirt')->with('success','Shirt updated successfully');
+            return redirect('accessories')->with('success','Accessorie updated successfully');
         }else{
             return back()->with('fail','Something went wrong');
         }
     }
 
-    function delete($id_shirt){
-        $shirt = DB::table('shirts')->where('id_shirt',$id_shirt);
-        $shirt->delete();
+    function delete($id){
+        $item = DB::table('accessories')->where('id',$id);
+        $item->delete();
 
-        return redirect('shirt');
+        return redirect('accessories');
     }
-
 }

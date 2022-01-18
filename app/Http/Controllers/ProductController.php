@@ -78,8 +78,9 @@ class ProductController extends Controller
     function deletePrice($id){
         $productH = DB::table('hoodies')->where('id_product',$id)->value('id_hoodie');
         $productS = DB::table('shirts')->where('id_product',$id)->value('id_shirt');
+        $productA = DB::table('accessories')->where('id_product',$id)->value('id');
 
-        if ($productH < 1 && $productS < 1){
+        if ($productH < 1 && $productS < 1 && $productA < 1){
             $price = DB::table('products')->where('id_product',$id);
             $price->delete();
             return back()->with('success','Price deleted successfully');

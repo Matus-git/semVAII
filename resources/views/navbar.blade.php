@@ -67,8 +67,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="{{route('hoodie')}}">Mikiny</a>
                         <a class="dropdown-item" href="{{route('shirt')}}">Tričká</a>
-                        <a class="dropdown-item" href="{{route('cap')}}">Šiltovky</a>
-                        <a class="dropdown-item" href="{{route('accessories')}}">Kľúčenky</a>
+                        <a class="dropdown-item" href="{{route('accessories')}}">Ostatné</a>
                     </div>
                 </li>
             @else
@@ -79,8 +78,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="{{route('hoodie')}}">Mikiny</a>
                         <a class="dropdown-item" href="{{route('shirt')}}">Tričká</a>
-                        <a class="dropdown-item" href="{{route('cap')}}">Šiltovky</a>
-                        <a class="dropdown-item" href="{{route('accessories')}}">Kľúčenky</a>
+                        <a class="dropdown-item" href="{{route('accessories')}}">Ostatné</a>
                     </div>
                 </li>
             @endif

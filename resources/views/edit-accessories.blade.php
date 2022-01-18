@@ -13,7 +13,7 @@
         </div>
     @endif
 
-    <form name="edit" action=" {{route('update-shirt',$shirt->id_shirt)}}" method="post" >
+    <form name="edit" action=" {{route('update-acc',$item->id)}}" method="post" >
         @csrf
 
         <div class="row">
@@ -29,31 +29,31 @@
 
                 <div class="form-group">
                     <label >Name</label>
-                    <input type="text" class="form-control" name="name"  value="{{old('name')??$shirt->name}}" >
+                    <input type="text" class="form-control" name="name"  value="{{old('name')??$item->name}}" >
                     <span style="color: red">@error('name'){{ $message }} @enderror</span>
                 </div>
 
                 <div class="form-group">
                     <label >Description</label>
-                    <input type="text" class="form-control" name="description" value="{{old('description')??$shirt->description}}" >
+                    <input type="text" class="form-control" name="description" value="{{old('description')??$item->description}}" >
                     <span style="color: red">@error('description'){{ $message }} @enderror</span>
                 </div>
 
                 <div class="form-group">
                     <label >Color</label>
-                    <input type="text" class="form-control" name="color" value="{{old('color')??$shirt->color}}" >
+                    <input type="text" class="form-control" name="color" value="{{old('color')??$item->color}}" >
                     <span style="color: red">@error('color'){{ $message }} @enderror</span>
                 </div>
 
                 <div class="form-group">
                     <label >Size</label>
-                    <input type="text" class="form-control" name="size"  value="{{old('size')??$shirt->size}}" >
+                    <input type="text" class="form-control" name="size"  value="{{old('size')??$item->size}}" >
                     <span style="color: red">@error('size'){{ $message }} @enderror</span>
                 </div>
 
                 <div class="form-group">
                     <label >Price id</label>
-                    <input type="number" class="form-control" name="id_product"  value="{{old('id_product')??$shirt->id_product}}" >
+                    <input type="number" class="form-control" name="id_product"  value="{{old('id_product')??$item->id_product}}" >
                     <span style="color: red">@error('price id'){{ $message }} @enderror</span>
                 </div>
 
@@ -75,7 +75,7 @@
             var name = $(this).data("name");
             event.preventDefault();
             swal({
-                title: `Are you sure you want to update this shirt?`,
+                title: `Are you sure you want to update ?`,
                 text: "If you update this, it will be changed.",
                 icon: "warning",
                 buttons: true,
@@ -89,7 +89,7 @@
                             buttons: true,
                         });
                     } else {
-                        swal("Your file is safe!");
+                        swal("Your  file is safe!");
                     }
                 });
         });
